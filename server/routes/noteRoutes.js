@@ -99,7 +99,7 @@ router.post('/category', authMiddleware, async (req, res) => {
 
 
 
-// GET single note by ID
+//  get single note by ID
 router.get('/notes/:id', authMiddleware, async (req, res) => {
   try {
     const userId = req.user.id;
@@ -124,7 +124,7 @@ router.get('/notes/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// PUT update note
+// update note
 router.put('/notes/:id', authMiddleware, async (req, res) => {
   try {
     const userId = req.user.id;
@@ -137,7 +137,7 @@ router.put('/notes/:id', authMiddleware, async (req, res) => {
       return res.status(404).json({ error: 'Note not found' });
     }
 
-    // Optional: Validate categoryIds and ownership again
+    
     if (Array.isArray(categoryIds) && categoryIds.length > 0) {
       const categories = await Category.findAll({
         where: {
@@ -162,7 +162,7 @@ router.put('/notes/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// DELETE note
+// delete note
 router.delete('/notes/:id', authMiddleware, async (req, res) => {
   try {
     const userId = req.user.id;
