@@ -27,7 +27,7 @@ function App() {
         }
       />
 
-      {/* Protected for logged-in users only */}
+      {/* Protected for logged in users only */}
       <Route
         path="/"
         element={

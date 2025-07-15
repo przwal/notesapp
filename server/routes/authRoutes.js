@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Login route
+// login
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -30,11 +30,11 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({ where: { email } });
     if (!user) return res.status(401).json({ error: 'Invalid email or password' });
 
-    // Check password
+    
     const valid = await user.comparePassword(password);
     if (!valid) return res.status(401).json({ error: 'Invalid email or password' });
 
-    // Generate JWT token
+    // generate jwt
     const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
 
     res.json({ token, user: { id: user.id, name: user.name, email: user.email } });
