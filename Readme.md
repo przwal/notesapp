@@ -21,7 +21,7 @@
 ### Clone the repo:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/przwal/notesapp.git
 ```
 
 ---
