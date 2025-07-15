@@ -16,14 +16,10 @@ app.use(cors());
 
 
 
-// Public routes
+// routes
 app.use('/auth', authRoutes);
 app.use('/api',noteRoutes); 
 
-// Protected example route
-app.get('/protected', authMiddleware, (req, res) => {
-  res.json({ message: 'You accessed a protected route!', user: req.user });
-});
 
 (async () => {
   try {
